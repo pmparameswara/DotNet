@@ -21,6 +21,13 @@ steps:
 
 - script: dotnet restore
 
+- task: SonarQubePrepare@4
+  inputs:
+    SonarQube: '36df4ca8-3330-47b9-a876-803c004428a3'
+    projectKey: 'Test'
+    projectName: 'MSTest'
+
+
 - task: DotNetCoreCLI@2
   displayName: Build
   inputs:
@@ -28,3 +35,6 @@ steps:
     projects: '**/*.csproj'
     arguments: '--configuration Release' # Update this to match your need
 
+- task: SonarQubePublish@4
+  inputs:
+    pollingTimeoutSec: '10'

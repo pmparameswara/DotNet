@@ -19,15 +19,6 @@ steps:
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
 
-- task: SonarQubePrepare@4
-  inputs:
-    SonarQube: '36df4ca8-3330-47b9-a876-803c004428a3'
-    projectKey: 'Test-123'
-    projectName: 'SDLC'
-
-- task: sonar-buildbreaker@7
-  inputs:
-    SonarQube: '36df4ca8-3330-47b9-a876-803c004428a3'
 - script: dotnet restore
 
 - task: DotNetCoreCLI@2
